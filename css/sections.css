@@ -1,0 +1,191 @@
+/* セクション固有のレイアウト(前半): ヒーロー・コンセプト */
+
+/* ---------- ヒーロー #top: 写真を画面いっぱいに。ネイビーのパネルが左下に重なる ---------- */
+.hero {
+  background: var(--c-navy);
+  color: var(--c-on-dark);
+  padding-bottom: var(--wh);
+}
+
+.hero__media img {
+  aspect-ratio: 4 / 5;
+  object-position: 56% 40%;
+}
+
+.hero__tag {
+  padding: var(--s-2) var(--gutter) 0;
+}
+
+.hero__panel {
+  padding: var(--s-6) var(--gutter) var(--s-7);
+}
+
+.hero__title {
+  font-family: var(--font-display);
+  font-size: 4rem;
+  font-weight: 300;
+  line-height: 72px;
+  letter-spacing: 0.3em;
+}
+
+.hero__catch {
+  margin-top: var(--s-4);
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 40px;
+  letter-spacing: 0.1em;
+}
+
+.hero__catch .badge {
+  margin-left: var(--s-3);
+}
+
+.hero__lead {
+  margin-top: var(--s-3);
+  color: var(--c-on-dark-sub);
+}
+
+.hero__cta {
+  margin-top: var(--s-5);
+}
+
+/* 登場の動き: 写真がゆっくり落ち着き、パネルの文字が順に浮かぶ */
+@keyframes heroZoom {
+  from { transform: scale(1.08); }
+  to { transform: scale(1); }
+}
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: none; }
+}
+
+.hero__media .frame img {
+  animation: heroZoom 2600ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+.hero__panel > * {
+  animation: rise 1000ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+.hero__panel > :nth-child(1) { animation-delay: 500ms; }
+.hero__panel > :nth-child(2) { animation-delay: 650ms; }
+.hero__panel > :nth-child(3) { animation-delay: 800ms; }
+.hero__panel > :nth-child(4) { animation-delay: 950ms; }
+.hero__panel > :nth-child(5) { animation-delay: 1100ms; }
+
+@media (min-width: 600px) {
+  .hero__media img {
+    aspect-ratio: 3 / 2;
+    object-position: 56% 45%;
+  }
+}
+
+@media (min-width: 960px) {
+  .hero__stage {
+    position: relative;
+    height: calc(100vh - var(--header-h) - var(--wh));
+    height: calc(100svh - var(--header-h) - var(--wh));
+    min-height: 600px;
+    max-height: 860px;
+  }
+
+  /* 写真は右の約76%。二人がパネルに隠れないよう、パネルは左の余白に重ねる */
+  .hero__media {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 76%;
+  }
+
+  .hero__media .frame,
+  .hero__media img {
+    height: 100%;
+  }
+
+  .hero__media img {
+    aspect-ratio: auto;
+    object-position: 25% 45%;
+  }
+
+  .hero__tag {
+    position: absolute;
+    right: var(--gutter);
+    bottom: var(--s-3);
+    padding: var(--s-1) var(--s-3);
+    background: var(--c-navy);
+  }
+
+  .hero__panel {
+    position: absolute;
+    bottom: 0;
+    left: max(var(--gutter), calc((100% - 1040px) / 2));
+    width: 500px;
+    padding: var(--s-8) var(--s-7) var(--s-7);
+    background: var(--c-navy);
+  }
+
+  .hero__title {
+    font-size: 7rem;
+    line-height: 120px;
+  }
+
+  .hero__catch {
+    font-size: 1.75rem;
+    line-height: 44px;
+  }
+}
+
+/* ---------- コンセプト #concept: 写真が右端まで大きく広がる ---------- */
+.concept__stage {
+  display: grid;
+  gap: var(--s-7);
+}
+
+.concept__text {
+  padding-inline: var(--gutter);
+}
+
+.concept__body {
+  max-width: 34em;
+  margin-top: var(--s-4);
+}
+
+.concept__body p + p {
+  margin-top: var(--s-3);
+}
+
+.concept__note {
+  font-size: 0.875rem;
+  line-height: 24px;
+  color: var(--c-text-sub);
+}
+
+.concept__media img {
+  aspect-ratio: 4 / 5;
+}
+
+.concept__media .figcaption {
+  padding-inline: var(--gutter);
+}
+
+@media (min-width: 960px) {
+  .concept__stage {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    column-gap: var(--s-8);
+    align-items: start;
+    padding-left: max(var(--gutter), calc((100% - 1040px) / 2));
+  }
+
+  .concept__text {
+    padding-inline: 0;
+    margin-top: var(--s-8);
+  }
+
+  .concept__media .figcaption {
+    padding-inline: 0;
+  }
+
+}

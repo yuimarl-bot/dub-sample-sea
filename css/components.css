@@ -1,0 +1,163 @@
+/* 部品: バッジ・電話ボタン・英字見出し・H2・画像ブロック */
+
+/* バッジ(枠のみ・角丸2)。種別は文言と枠の形で区別する */
+.badge {
+  display: inline-flex;
+  font-family: var(--font-sans);
+  align-items: center;
+  min-height: 24px;
+  padding: var(--s-1) var(--s-2);
+  border: 1px solid currentColor;
+  border-radius: 2px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 16px;
+  letter-spacing: 0.08em;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.badge--sample {
+  color: var(--c-navy);
+}
+
+.badge--soon {
+  border-style: dashed;
+  color: var(--c-text-sub);
+}
+
+.badge--check {
+  border-color: var(--c-warn-border);
+  background: var(--c-warn-bg);
+  color: var(--c-warn-text);
+}
+
+.is-dark .badge--sample {
+  color: var(--c-paper);
+}
+
+.is-dark .badge--soon {
+  color: var(--c-on-dark-sub);
+}
+
+/* 電話ボタン(<a href="tel:">)。明るい面=ネイビー塗り、暗い面=オフホワイト塗り */
+.cta {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--s-1) var(--s-3);
+  width: 100%;
+  max-width: 360px;
+  min-height: 56px;
+  padding: 0 var(--s-4);
+  border: 1px solid var(--c-navy);
+  background: var(--c-navy);
+  color: #ffffff;
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 24px;
+  letter-spacing: 0.16em;
+  text-decoration: none;
+  transition: background 200ms ease-out, border-color 200ms ease-out;
+}
+
+.cta:hover {
+  border-color: var(--c-navy-hover);
+  background: var(--c-navy-hover);
+}
+
+.cta::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  background: var(--c-gold);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 500ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.cta:hover::after,
+.cta:focus-visible::after {
+  transform: scaleX(1);
+}
+
+.cta__num {
+  padding-left: var(--s-3);
+  border-left: 1px solid var(--c-gold);
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  letter-spacing: 0.08em;
+}
+
+.is-dark .cta {
+  border-color: var(--c-paper);
+  background: var(--c-paper);
+  color: var(--c-navy);
+}
+
+.is-dark .cta:hover {
+  border-color: #ffffff;
+  background: #ffffff;
+}
+
+.cta-note {
+  margin-top: var(--s-2);
+  font-size: 0.875rem;
+  line-height: 24px;
+  color: var(--c-text-sub);
+}
+
+.is-dark .cta-note {
+  color: var(--c-on-dark-sub);
+}
+
+.text-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-weight: 600;
+  text-underline-offset: 6px;
+}
+
+/* 電話番号は途中で折り返さない。狭い幅ではボタンを縦並びにする */
+.cta__num,
+.text-link {
+  white-space: nowrap;
+}
+
+@media (max-width: 420px) {
+  .cta {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .cta__num {
+    padding-left: 0;
+    border-left: 0;
+  }
+}
+
+/* 画像ブロック: 角丸0・枠なし・画像の上に文字を重ねない */
+.media img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  object-position: 50% 50%;
+}
+
+.figcaption {
+  margin-top: var(--s-2);
+  font-size: 0.875rem;
+  line-height: 24px;
+  color: var(--c-text-sub);
+}
+
+.is-dark .figcaption {
+  color: var(--c-on-dark-sub);
+}

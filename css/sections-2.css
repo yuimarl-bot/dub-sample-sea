@@ -1,0 +1,140 @@
+/* セクション固有のレイアウト(中盤): スタイル・メニュー */
+
+/* ---------- スタイル #style: 見出しが画面に残り、右で写真が流れる ---------- */
+.style {
+  background: var(--c-sand);
+}
+
+.style__grid {
+  display: grid;
+  gap: var(--s-8);
+  margin-top: var(--s-7);
+}
+
+.style__grid li:nth-child(1) { width: 100%; }
+.style__grid li:nth-child(2) { width: 78%; justify-self: end; }
+.style__grid li:nth-child(3) { width: 64%; }
+.style__grid li:nth-child(4) { width: 100%; }
+.style__grid li:nth-child(5) { width: 84%; justify-self: end; }
+.style__grid li:nth-child(6) { width: 70%; }
+.style__grid li:nth-child(7) { width: 94%; justify-self: end; }
+
+.g-4x5 img { aspect-ratio: 4 / 5; }
+.g-3x2 img { aspect-ratio: 3 / 2; }
+.g-1x1 img { aspect-ratio: 1 / 1; }
+
+@media (min-width: 960px) {
+  .style__layout {
+    display: grid;
+    grid-template-columns: 4fr 7fr;
+    column-gap: var(--s-10);
+    align-items: start;
+  }
+
+  .style__head {
+    position: sticky;
+    top: var(--s-7);
+  }
+
+  .style__grid {
+    gap: var(--s-12);
+    margin-top: 0;
+  }
+}
+
+/* ---------- メニュー #menu: 大きな書体のリスト ---------- */
+.menu__list {
+  margin-top: var(--s-7);
+  border-bottom: 1px solid var(--c-line);
+}
+
+.menu__item {
+  display: grid;
+  gap: var(--s-2);
+  padding-block: var(--s-6);
+  border-top: 1px solid var(--c-line);
+}
+
+.menu__idx {
+  font-family: var(--font-display);
+  font-size: 0.875rem;
+  font-weight: 300;
+  letter-spacing: 0.2em;
+  color: var(--c-gold-text);
+}
+
+.menu__name {
+  font-family: var(--font-serif);
+  font-size: 1.75rem;
+  font-weight: 500;
+  line-height: 44px;
+  letter-spacing: 0.1em;
+}
+
+.menu__name .badge {
+  margin-left: var(--s-3);
+  font-family: var(--font-sans);
+}
+
+.menu__desc {
+  color: var(--c-text-sub);
+}
+
+@media (min-width: 960px) {
+  .menu__list {
+    margin-top: var(--s-10);
+  }
+
+  .menu__item {
+    grid-template-columns: 96px 1fr 1fr;
+    align-items: baseline;
+    gap: var(--s-4);
+    padding-block: var(--s-8);
+  }
+
+  .menu__name {
+    font-size: 2.5rem;
+    line-height: 56px;
+  }
+}
+
+/* ---------- コンセプトのお店の特徴3点(罫線と大きな細い数字) ---------- */
+.points {
+  display: grid;
+  gap: var(--s-6);
+  margin-top: var(--s-10);
+}
+
+.points li {
+  padding-top: var(--s-4);
+  border-top: 1px solid var(--c-line);
+}
+
+.points__num {
+  font-family: var(--font-display);
+  font-size: 3rem;
+  font-weight: 200;
+  line-height: 56px;
+  letter-spacing: 0.08em;
+  color: var(--c-gold-text);
+}
+
+.points__title {
+  margin-top: var(--s-2);
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 28px;
+  letter-spacing: 0.06em;
+}
+
+.points__text {
+  margin-top: var(--s-2);
+}
+
+@media (min-width: 960px) {
+  .points {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--s-8);
+    margin-top: var(--s-12);
+  }
+}

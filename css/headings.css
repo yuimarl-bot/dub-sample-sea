@@ -1,0 +1,67 @@
+/* 見出し: 英字アイブロウ・大見出し・リード・注記 */
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: var(--s-3);
+  color: var(--c-gold-text);
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: 16px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+}
+
+.eyebrow::before {
+  content: "";
+  flex: none;
+  width: 32px;
+  height: 1px;
+  background: var(--c-gold);
+}
+
+.is-dark .eyebrow {
+  color: var(--c-gold);
+}
+
+.section-title {
+  margin-top: var(--s-3);
+  font-family: var(--font-serif);
+  font-size: 1.75rem;
+  font-weight: 500;
+  line-height: 40px;
+  letter-spacing: 0.12em;
+}
+
+.section-title .badge {
+  margin-left: var(--s-3);
+}
+
+.section-lead {
+  margin-top: var(--s-5);
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-weight: 500;
+  line-height: 36px;
+  letter-spacing: 0.1em;
+}
+
+.section-note {
+  margin-top: var(--s-3);
+  font-size: 0.875rem;
+  line-height: 24px;
+  color: var(--c-text-sub);
+}
+
+@media (min-width: 960px) {
+  .section-title {
+    font-size: 2.5rem;
+    line-height: 56px;
+  }
+
+  .section-lead {
+    font-size: 1.5rem;
+    line-height: 44px;
+  }
+}
+

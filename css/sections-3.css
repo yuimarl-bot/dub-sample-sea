@@ -1,0 +1,161 @@
+/* セクション固有のレイアウト(終盤): アクセス・予約 */
+
+/* ---------- アクセス #access (サンド) ---------- */
+.access {
+  background: var(--c-sand);
+  padding-bottom: calc(var(--section-y) + var(--wh));
+}
+
+.access__inner {
+  display: grid;
+  gap: var(--s-7);
+  margin-top: var(--s-7);
+}
+
+.info {
+  border-top: 1px solid var(--c-line-sand);
+}
+
+.info__row {
+  padding-block: var(--s-3);
+  border-bottom: 1px solid var(--c-line-sand);
+}
+
+.info__row dt {
+  font-size: 0.875rem;
+  font-weight: 700;
+  line-height: 24px;
+  color: var(--c-text-sub);
+}
+
+.info__row dd {
+  line-height: 28px;
+}
+
+.info__row .badge {
+  margin-left: var(--s-2);
+}
+
+.map-frame {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 4 / 3;
+  border: 1px solid var(--c-line-sand);
+  background:
+    repeating-linear-gradient(45deg, transparent 0 11px, var(--c-hatch) 11px 12px),
+    var(--c-paper);
+}
+
+.map-frame__text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--s-2);
+  font-weight: 600;
+}
+
+@media (min-width: 960px) {
+  .access__inner {
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: var(--s-4);
+    align-items: start;
+    margin-top: var(--s-10);
+  }
+
+  .info {
+    grid-column: 1 / 7;
+  }
+
+  .map-frame {
+    grid-column: 8 / 13;
+  }
+
+  .info__row {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: var(--s-3);
+    padding-block: var(--s-4);
+  }
+}
+
+/* ---------- 予約 #reserve (ネイビー。電話番号を大きな書体で見せる) ---------- */
+.reserve {
+  background: var(--c-navy);
+  color: var(--c-on-dark);
+  text-align: center;
+}
+
+.reserve .wave {
+  --wave-front: var(--c-navy);
+}
+
+.reserve__rule {
+  width: 40px;
+  height: 1px;
+  margin: 0 auto var(--s-4);
+  background: var(--c-gold);
+}
+
+.reserve .section-title {
+  margin-top: 0;
+  font-size: 1.5rem;
+  letter-spacing: 0.06em;
+  text-wrap: balance;
+}
+
+@media (min-width: 600px) {
+  .reserve .section-title {
+    font-size: 1.75rem;
+    letter-spacing: 0.12em;
+  }
+}
+
+@media (min-width: 960px) {
+  .reserve .section-title {
+    font-size: 2.5rem;
+  }
+}
+
+.reserve__lead {
+  margin-top: var(--s-4);
+  color: var(--c-on-dark-sub);
+}
+
+.reserve__tel {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--s-2);
+  min-height: 44px;
+  margin-top: var(--s-7);
+  text-decoration: none;
+}
+
+.reserve__tel-label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  color: var(--c-gold);
+}
+
+.reserve__tel-num {
+  padding-bottom: var(--s-2);
+  background: linear-gradient(var(--c-gold), var(--c-gold)) 0 100% / 100% 1px no-repeat;
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 9vw, 5.5rem);
+  font-weight: 200;
+  line-height: 1.2;
+  letter-spacing: 0.06em;
+  transition: background-size 600ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.reserve__tel:hover .reserve__tel-num,
+.reserve__tel:focus-visible .reserve__tel-num {
+  background-size: 0 1px;
+  background-position-x: 100%;
+}
+
+.reserve .cta-note {
+  margin-top: var(--s-4);
+}

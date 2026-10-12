@@ -1,0 +1,134 @@
+/* DUB 海のイメージ版: デザイントークン・リセット・ベース (洗練・ミニマル) */
+:root {
+  /* color: ネイビー / オフホワイト / サンド + シャンパンゴールド(唯一のアクセント) */
+  --c-navy: #12263a;
+  --c-navy-hover: #1e3a54;
+  --c-night: #0c1b2a;
+  --c-paper: #faf8f3;
+  --c-sand: #e9e1d3;
+  --c-gold: #c4a777; /* 罫線・波線・暗い面の英字のみ。明るい面の文字には使わない */
+  --c-gold-text: #6f5427;
+  --c-text: var(--c-navy);
+  --c-text-sub: #4a5764;
+  --c-on-dark: #faf8f3;
+  --c-on-dark-sub: #c9d2da;
+  --c-line: #d6cdba;
+  --c-line-sand: #c9bfaa;
+  --c-hatch: #d6cdba;
+  --c-warn-bg: #fff1d6;
+  --c-warn-text: #7a3e12;
+  --c-warn-border: #c98a3a;
+  --c-focus: #0b5cad;
+  --c-focus-on-dark: #ffffff;
+
+  /* spacing (8pt grid) */
+  --s-1: 4px;
+  --s-2: 8px;
+  --s-3: 16px;
+  --s-4: 24px;
+  --s-5: 32px;
+  --s-6: 40px;
+  --s-7: 48px;
+  --s-8: 64px;
+  --s-10: 96px;
+  --s-12: 128px;
+
+  /* font (システムフォントのみ) */
+  --font-display: "Avenir Next", "Helvetica Neue", "Segoe UI", "Hiragino Sans",
+    system-ui, sans-serif;
+  --font-serif: "Hiragino Mincho ProN", "Yu Mincho", "YuMincho",
+    "Noto Serif JP", serif;
+  --font-sans: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic UI",
+    "Yu Gothic", Meiryo, system-ui, sans-serif;
+
+  /* layout (モバイル基準。600px / 960px 以上で上書き) */
+  --gutter: 24px;
+  --section-y: 80px;
+  --header-h: 56px;
+  --wh: 24px; /* 波の高さ */
+}
+
+@media (min-width: 600px) {
+  :root {
+    --gutter: 40px;
+    --section-y: 96px;
+    --wh: 32px;
+  }
+}
+
+@media (min-width: 960px) {
+  :root {
+    --gutter: 48px;
+    --section-y: 144px;
+    --header-h: 72px;
+    --wh: 48px;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--c-paper);
+  color: var(--c-text);
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 2;
+  letter-spacing: 0.04em;
+  overflow-wrap: anywhere;
+}
+
+h1,
+h2,
+h3,
+p,
+ul,
+dl,
+dd,
+figure {
+  margin: 0;
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 3px solid var(--c-focus);
+  outline-offset: 2px;
+}
+
+.is-dark :focus-visible,
+.site-header :focus-visible,
+.site-footer :focus-visible {
+  outline-color: var(--c-focus-on-dark);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
